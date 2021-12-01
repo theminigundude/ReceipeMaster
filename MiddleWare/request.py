@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect
 from flaskext.mysql import MySQL
 import json
-import queryHandler
+import QueryHandler
 
 ##### CONFIG #####
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app = Flask(__name__)
 #Retrieve username and password from json
 keys = {}
 monthYear = ''
-with open("Json/key.json","r") as f:
+with open("Json/keys.json","r") as f:
     keys = json.loads(f.read())
 
 db_host = keys['host']
@@ -47,10 +47,10 @@ def getReipes():
     #     return monthYearFunc
 
     conn = create_connection()
-
+g
 
     # query = "SELECT shopName, transactionDate, amount, category FROM %s ORDER BY transactionDate DESC" % (monthYearPersonal)
-    # tabledata = queryHandler.generalQuery(conn, query)
+    # tabledata = QueryHandler.generalQuery(conn, query)
 
     
     if request.method == "POST" and "requestReceipes" in request.form:

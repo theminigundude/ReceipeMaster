@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect
-from flaskext.mysql import MySQL
+import pymssql  
 import json
 import QueryHandler
 
@@ -17,25 +17,17 @@ db_user = keys['user']
 db_pw = keys['password']
 db_name = keys['databasename']
 
-
-app.config['MYSQL_DATABASE_HOST'] = db_host
-app.config['MYSQL_DATABASE_USER'] = db_user
-app.config['MYSQL_DATABASE_PASSWORD'] = db_pw
-app.config['MYSQL_DATABASE_DB'] = db_name
-mysql = MySQL(app)
-
 #Create_connection
 def create_connection():
     conn = None
     try:
-        conn = mysql.connect()
+        conn = pymssql.connect(server=db_host, user=db_user, password=db_pw, database=db_name)
     except Exception as e:
         print(e)
     return conn
 
 
 @app.route("/receipeRequest", methods=['GET', 'POST'])
-
 def getReipes():
 
 
@@ -47,7 +39,6 @@ def getReipes():
     #     return monthYearFunc
 
     conn = create_connection()
-g
 
     # query = "SELECT shopName, transactionDate, amount, category FROM %s ORDER BY transactionDate DESC" % (monthYearPersonal)
     # tabledata = QueryHandler.generalQuery(conn, query)

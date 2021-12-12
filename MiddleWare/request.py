@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 #Retrieve username and password from json
 keys = {}
-monthYear = ''
 with open("Json/keys.json","r") as f:
     keys = json.loads(f.read())
 
@@ -26,8 +25,15 @@ def create_connection():
         print(e)
     return conn
 
+# Adding receipe to database
+@app.route("/ReceipeAddition", methods=['GET', 'POST'])
+def addReipes():
+    print("hello")
 
-@app.route("/receipeRequest", methods=['GET', 'POST'])
+
+
+# Querying receipe from database
+@app.route("/ReceipeRequest", methods=['GET', 'POST'])
 def getReipes():
 
 

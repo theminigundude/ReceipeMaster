@@ -22,6 +22,6 @@
 
 ### SQL
 - [x] Set Up SQL/VM on Azure
-- [x] Get Cred / Allowlist cerntain IPs
+- [x] Get Cred / Allowlist certain IPs
 - [x] Tables created for user input (partially), recipes, basic user info (password, etc)
 - [ ] Decide on columns / how many tables (0 layer breakfast/lunch/dinner 1 layer how easy to prep 2 layer 
